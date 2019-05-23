@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="paging-loadjquery paging load plugin滑动，分页加载jquery（Zepto）插件 DEMOdemo 示例json数据点击查看 csshtml{     height: 100%; } body{     height: 100%; } html&amp;lt;div id=&amp;quot;content-notice&amp;quot;&amp;gt;     &amp;lt;div class=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paging-load">
+<meta property="og:url" content="http://yoursite.com/2015/10/22/github_heiliuer_paging-load/index.html">
+<meta property="og:site_name" content="Heiliuer">
+<meta property="og:description" content="paging-loadjquery paging load plugin滑动，分页加载jquery（Zepto）插件 DEMOdemo 示例json数据点击查看 csshtml{     height: 100%; } body{     height: 100%; } html&amp;lt;div id=&amp;quot;content-notice&amp;quot;&amp;gt;     &amp;lt;div class=">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-23T08:38:10.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="paging-load">
+<meta name="twitter:description" content="paging-loadjquery paging load plugin滑动，分页加载jquery（Zepto）插件 DEMOdemo 示例json数据点击查看 csshtml{     height: 100%; } body{     height: 100%; } html&amp;lt;div id=&amp;quot;content-notice&amp;quot;&amp;gt;     &amp;lt;div class=">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/10/22/github_heiliuer_paging-load/">
+
+
+
+
+
+  <title>paging-load | Heiliuer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Heiliuer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/22/github_heiliuer_paging-load/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="heiliuer">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Heiliuer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">paging-load</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-22T10:50:20+08:00">
+                2015-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2015/10/22/github_heiliuer_paging-load/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2015/10/22/github_heiliuer_paging-load/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="paging-load"><a href="#paging-load" class="headerlink" title="paging-load"></a>paging-load</h1><p><code>jquery paging load plugin</code><br><code>滑动，分页加载jquery（Zepto）插件</code></p>
+<h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><p><a href="http://heiliuer.github.io/paging-load/" target="_blank" rel="noopener">demo</a></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="json数据"><a href="#json数据" class="headerlink" title="json数据"></a>json数据</h3><p><a href="data/page.json">点击查看</a></p>
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><pre><code>html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+</code></pre><h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><pre><code>&lt;div id=&quot;content-notice&quot;&gt;
+    &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;footer&quot;&gt;
+        &lt;!-- &lt;p id=&quot;nextPage&quot; class=&quot;center&quot;&gt;加载更多&lt;/p&gt; --&gt;
+        &lt;p id=&quot;status&quot; style=&quot;text-align: center&quot;&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script id=&quot;tmpl-msg&quot; type=&quot;wxy/template&quot;&gt;
+    &lt;div style=&quot;border-bottom: 1px solid #ccc&quot;&gt;
+        {{for message}}
+        &lt;b&gt;{{>title}}&lt;/b&gt;
+        &lt;p&gt;{{>content}}&lt;/p&gt;
+        {{/for}}
+    &lt;/div&gt;
+&lt;/script&gt;
+</code></pre><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><pre><code>&lt;script src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jsrender.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/wxy.paging.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var config = {
+        ajax: {
+            url: &quot;data/page.json&quot;,
+            data: {}
+        },
+        handler: {
+            autoLoad: true,
+            triggerByScroll: true,
+            holder: &quot;.main&quot;,
+            scrollHolder: &quot;body&quot;
+        },
+        dataParser: {
+            pageSize: 10,
+            reverse: false,
+            isAppend: true,
+            nameArray: &quot;messages&quot;
+        },
+        dataRender: {
+            tmplSelector: &quot;#tmpl-msg&quot;
+        },
+        msgs: {
+            allLoaded: &quot;已加载所有通知（共%s条）&quot;,
+            noContent: &quot;暂无内容&quot;
+        },
+        pageLoaded: function (dataArray, page, total) {// this
+            // $pageHodler
+            this.find(&quot;[data-init]&quot;).trigger(&quot;init&quot;);
+        },
+        itemLoaded: function (item, count, total) {// this
+            // $itemHodler
+        },
+        statusChanged: function (statusTo, statusFrom, msg) {// this
+            // $el
+        },
+        showWarn: function (msg) {
+        }
+    }
+
+    $(&quot;#content-notice&quot;).paging(config);
+&lt;/script&gt;
+</code></pre><h3 id="模板引擎推荐使用通jsrender"><a href="#模板引擎推荐使用通jsrender" class="headerlink" title="模板引擎推荐使用通jsrender"></a>模板引擎推荐使用通jsrender</h3><p><a href="/js/jsrender.min.js">点击下载</a><br>可以自行选择其他插件，要求提供$.fn.render(data)接口</p>
+<h1 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h1><pre><code>// 插件默认配置
+var DEFAULTS = {
+    ajax : {
+        url : &quot;&quot;,
+        dataType : &quot;JSON&quot;,
+        cache : false,
+        data : {
+            page : 1
+        },
+        type : &quot;get&quot;
+    },
+    handler : {
+        nextPage : &quot;#nextPage&quot;,
+        status : &quot;#status&quot;,
+        holder : &quot;&quot;,
+        showNoContent : true,
+        showAllLoaded : true,
+        autoLoad : false,
+        triggerByScroll : false,// 是否滑动加载
+        isScrollByBottom : true,// 是否滑动到底部加载
+        disToTrigger : 30,// 滑动模式下，当距离底部或者顶部多少像素时触发加载
+        scroller : window,// 监听滑动事件的dom
+        scrollHolder : &quot;body&quot;// 滑动模式下
+        // 可以计算滑动距离的滑动内容（this.scrollTop，$this.innerHeight,最好是body，为空的时候为当前插件$root）的dom
+    },
+    dataParser : {
+        pageSize : 10,
+        reverse : false,
+        isAppend : true,
+        nameData : &quot;data&quot;,
+        nameArray : &quot;items&quot;,
+        isSuccess : function(json) {
+            return json.status == 0;
+        },
+        getMessage : function(json) {
+            return json.message;
+        },
+        getPageTotal : function(json) {
+            return json.pageTotal;
+        },
+        getItemTotal : function(json) {
+            return json.itemTotal;
+        },
+        getDataArray : function(json) {
+            var data = json[this.nameData];
+            if (data) {
+                var array = data[this.nameArray];
+                if ($.isArray(array)) {
+                    return array;
+                }
+                console.log(data, &apos; has no child array named &apos;,
+                        this.nameArray);
+            } else {
+                console.log(json, &apos; has no child obj named &apos;,
+                        this.nameData);
+            }
+            return null;
+        }
+    },
+    dataRender : {
+        tmplSelector : &quot;#template&quot;,
+        createPageHolder : function() {
+            return $(&quot;&lt;div&gt;&quot;);
+        },
+        createItemHolder : function() {
+            return $(&quot;&lt;div&gt;&quot;);
+        },
+        renderItem : function(item) {
+            var $tmpl = $(this.tmplSelector);
+            // debuglog(&quot;$tmpl:&quot;, $tmpl, item);
+            if ($tmpl.render) {
+                return $tmpl.render(item);
+            } else {
+                console.error(&quot;there is no render plugin!&quot;);
+            }
+            return &quot;&quot;;
+        },
+        animation : &quot;show&quot;
+    },
+    msgs : {
+        scrollLoad : &quot;上拉加载更多&quot;,
+        error : &quot;加载出错&quot;,
+        loading : &quot;正在加载&quot;,
+        allLoaded : &quot;已加载所有内容,共%s条&quot;,
+        noContent : &quot;暂无内容&quot;,
+        unknown : &quot;未知&quot;,
+        ajaxError : &quot;网络异常&quot;,
+        dataError : &quot;数据格式出错&quot;,
+        renderError : &quot;数据解析失败&quot;
+    },
+    pageLoadBefore : function(dataArray, page, total) {// this
+        // $pageHodler
+    },
+    pageLoaded : function(dataArray, page, total) {// this
+        // $pageHodler
+    },
+    itemLoaded : function(item, count, total) {// this $itemHodler
+    },
+    statusChanged : function(statusTo, statusFrom, msg) {// this
+        // $el
+    },
+    showWarn : function(msg) {
+    }
+};
+</code></pre><hr>
+<p><a href="https://github.com/heiliuer/paging-load" target="_blank" rel="noopener">github</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/30/paging-load/" rel="next" title="paging-load">
+                <i class="fa fa-chevron-left"></i> paging-load
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/18/github_heiliuer_Tomato/" rel="prev" title="Tomato">
+                Tomato <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">heiliuer</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#paging-load"><span class="nav-number">1.</span> <span class="nav-text">paging-load</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DEMO"><span class="nav-number">1.1.</span> <span class="nav-text">DEMO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.2.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#json数据"><span class="nav-number">1.2.1.</span> <span class="nav-text">json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css"><span class="nav-number">1.2.2.</span> <span class="nav-text">css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html"><span class="nav-number">1.2.3.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-number">1.2.4.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板引擎推荐使用通jsrender"><span class="nav-number">1.2.5.</span> <span class="nav-text">模板引擎推荐使用通jsrender</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置说明"><span class="nav-number">2.</span> <span class="nav-text">配置说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">heiliuer</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytde2L6i';
+      var conf = 'ec2295d87ce799d7d79dfe70bcf4ba09';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
